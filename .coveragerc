@@ -1,0 +1,5 @@
+[run]
+include = floor_plan_project/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
