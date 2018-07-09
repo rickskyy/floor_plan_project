@@ -235,7 +235,7 @@ MANAGERS = ADMINS
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'floor_plan_project.floor_plans.pagination.PageNumberExtendedPagination',
-    'PAGE_SIZE': 20
+    'PAGE_SIZE': 50
 }
 
 CORS_ORIGIN_WHITELIST = (
