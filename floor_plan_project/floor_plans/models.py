@@ -9,7 +9,7 @@ class ImageRecord(models.Model):
     origin_url = models.URLField(null=True)
 
     class Meta:
-        ordering = ('uploaded_at',)
+        ordering = ('uploaded_at', 'id')
 
     def get_absolute_url(self):
         """
