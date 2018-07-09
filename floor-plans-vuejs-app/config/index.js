@@ -9,8 +9,7 @@ module.exports = {
     mode: 'production',
     // Paths
     assetsSubDirectory: 'assets',
-    // assetsPublicPath: 'http://localhost:8080/',
-    assetsPublicPath: 'https://django-floor-plans-assets.s3.amazonaws.com/',
+    assetsPublicPath: 'http://localhost:8080/',
     proxyTable: {},
 
     // Various Dev Server settings

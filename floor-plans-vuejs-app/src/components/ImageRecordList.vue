@@ -50,7 +50,7 @@ import {APIService} from '../http/APIService'
 import Loading from './Loading'
 import bImg from 'bootstrap-vue/es/components/image/img'
 
-const API_URL = 'http://localhost:8000/floor_plans/api/'
+const API_URL = process.env.ROOT_API
 const apiService = new APIService()
 
 function sleep (time) {

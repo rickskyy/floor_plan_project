@@ -54,7 +54,7 @@ import {APIService} from '../http/APIService'
 import Loading from './Loading'
 
 const apiService = new APIService()
-const API_URL = 'http://localhost:8000/floor_plans/api/'
+const API_URL = process.env.ROOT_API
 
 export default {
   name: 'Classify',
