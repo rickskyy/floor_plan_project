@@ -67,7 +67,6 @@ Jinja2==2.6
 jmespath==0.9.3
 kiwisolver==1.0.1
 MarkupSafe==1.0
-matplotlib==2.2.2
 mccabe==0.6.1
 more-itertools==4.2.0
 multidict==4.3.1

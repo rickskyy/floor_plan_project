@@ -6,8 +6,8 @@ from abc import ABC, abstractmethod
 from PIL import Image
 import pickle
 import os
-from matplotlib.pyplot import plot
-import matplotlib.pyplot as plt
+# from matplotlib.pyplot import plot
+# import matplotlib.pyplot as plt
 import multiprocessing
 
 
@@ -94,9 +94,9 @@ class BaseFeatureExtractor(ABC):
         with open(path, 'wb') as f:
             pickle.dump(feautures_list, f)
 
-    def plot_feature(self, feature):
-        p = plot(feature)
-        plt.show()
+    # def plot_feature(self, feature):
+    #     p = plot(feature)
+    #     plt.show()
 
 
 class RGBBasedFeatureExtractor(BaseFeatureExtractor):
