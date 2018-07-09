@@ -1,0 +1,6 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=floor_plan_projectPOSTGRES_USER=czBEBDvArmlTeWfTCWzwKLNECudvAarH
+POSTGRES_PASSWORD=8AjpcHZIWcUecbf7LS8QZSeKbySjX1Qy4LHyqN0ZGgyVVlRv8QfE6vCk28V0dP6I
