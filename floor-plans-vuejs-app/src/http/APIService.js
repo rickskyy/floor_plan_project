@@ -1,5 +1,5 @@
 import axios from 'axios'
-const API_URL = 'http://localhost:8000/floor_plans/api'
+const API_URL = process.env.ROOT_API
 
 export class APIService {
   getImageRecords (page) {
