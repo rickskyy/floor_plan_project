@@ -12,10 +12,10 @@
             <a class="btn btn-primary" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary" href="/image-record-list">ImageRecords</a>
+            <router-link tag="button" to="/image-record-list" class="btn btn-primary">ImageRecords</router-link>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary" href="/image-record-classify">Classify</a>
+            <router-link tag="button" to="/image-record-classify" class="btn btn-primary">Classify</router-link>
           </li>
 
         </ul>
@@ -46,27 +46,3 @@ export default {
     margin-left: 5px;
   }
 </style>
-
-<!--<template>-->
-  <!--<div id="app">-->
-    <!--<img src="./assets/logo.png">-->
-    <!--<router-view/>-->
-  <!--</div>-->
-<!--</template>-->
-
-<!--<script>-->
-<!--export default {-->
-  <!--name: 'App'-->
-<!--}-->
-<!--</script>-->
-
-<!--<style>-->
-<!--#app {-->
-  <!--font-family: 'Avenir', Helvetica, Arial, sans-serif;-->
-  <!-- -webkit-font-smoothing: antialiased;-->
-  <!-- -moz-osx-font-smoothing: grayscale;-->
-  <!--text-align: center;-->
-  <!--color: #2c3e50;-->
-  <!--margin-top: 60px;-->
-<!--}-->
-<!--</style>-->

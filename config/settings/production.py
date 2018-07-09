@@ -88,15 +88,16 @@ AWS_S3_OBJECT_PARAMETERS = {
 # STATIC
 # ------------------------
 
-STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
-STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
+# STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
+# STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
+# STATIC_ROOT = STATIC_URL
 
 # MEDIA
 # ------------------------------------------------------------------------------
 
 # region http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
-StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
+# StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
 MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
 # endregion
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
@@ -131,77 +132,3 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
 # ------------------------------------------------------------------------------
 # Django Admin URL regex.
 ADMIN_URL = env('DJANGO_ADMIN_URL')
-
-# Anymail (Mailgun)
-# ------------------------------------------------------------------------------
-# https://anymail.readthedocs.io/en/stable/installation/#installing-anymail
-# INSTALLED_APPS += ['anymail']  # noqa F405
-# EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
-# # https://anymail.readthedocs.io/en/stable/installation/#anymail-settings-reference
-# ANYMAIL = {
-#     'MAILGUN_API_KEY': env('MAILGUN_API_KEY'),
-#     'MAILGUN_SENDER_DOMAIN': env('MAILGUN_DOMAIN')
-# }
-
-# Gunicorn
-# ------------------------------------------------------------------------------
-# INSTALLED_APPS += ['gunicorn']  # noqa F405
-
-# Collectfast
-# ------------------------------------------------------------------------------
-# https://github.com/antonagestam/collectfast#installation
-# INSTALLED_APPS = ['collectfast'] + INSTALLED_APPS  # noqa F405
-# AWS_PRELOAD_METADATA = True
-
-
-# LOGGING
-# ------------------------------------------------------------------------------
-# See: https://docs.djangoproject.com/en/dev/ref/settings/#logging
-# A sample logging configuration. The only tangible logging
-# performed by this configuration is to send an email to
-# the site admins on every HTTP 500 error when DEBUG=False.
-# See https://docs.djangoproject.com/en/dev/topics/logging for
-# more details on how to customize your logging configuration.
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'filters': {
-#         'require_debug_false': {
-#             '()': 'django.utils.log.RequireDebugFalse'
-#         }
-#     },
-#     'formatters': {
-#         'verbose': {
-#             'format': '%(levelname)s %(asctime)s %(module)s '
-#                       '%(process)d %(thread)d %(message)s'
-#         },
-#     },
-#     'handlers': {
-#         'mail_admins': {
-#             'level': 'ERROR',
-#             'filters': ['require_debug_false'],
-#             'class': 'django.utils.log.AdminEmailHandler'
-#         },
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#             'formatter': 'verbose',
-#         },
-#     },
-#     'loggers': {
-#         'django.request': {
-#             'handlers': ['mail_admins'],
-#             'level': 'ERROR',
-#             'propagate': True
-#         },
-#         'django.security.DisallowedHost': {
-#             'level': 'ERROR',
-#             'handlers': ['console', 'mail_admins'],
-#             'propagate': True
-#         }
-#     }
-# }
-
-
-# Your stuff...
-# ------------------------------------------------------------------------------

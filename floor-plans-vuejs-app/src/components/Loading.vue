@@ -5,20 +5,19 @@
 </template>
 
 <script>
-/* eslint-disable */
-  export default {
-    name: 'Loading',
-    props: ['loading'],
-    data () {
-        return {}
-    }
+export default {
+  name: 'Loading',
+  props: ['loading'],
+  data () {
+    return {}
   }
+}
 </script>
 
 <style>
-    h1{
-        color: black;
-    }
+  h1{
+      color: black;
+  }
   .spinner {
     position: absolute;
     display: flex;

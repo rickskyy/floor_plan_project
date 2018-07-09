@@ -9,7 +9,8 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'assets',
-    assetsPublicPath: 'http://localhost:8080/',
+    // assetsPublicPath: 'http://localhost:8080/',
+    assetsPublicPath: 'https://django-floor-plans-assets.s3.amazonaws.com/',
     proxyTable: {},
 
     // Various Dev Server settings
@@ -18,6 +19,7 @@ module.exports = {
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
+    // historyApiFallback: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
     // Use Eslint Loader?

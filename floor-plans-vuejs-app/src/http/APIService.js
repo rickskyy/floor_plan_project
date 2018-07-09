@@ -1,16 +1,9 @@
-/* eslint-disable */
-
 import axios from 'axios'
-// import AuthService from '../auth/AuthService';
 const API_URL = 'http://localhost:8000/floor_plans/api'
 
 export class APIService {
-  constructor () {
-
-  }
-
-  getImageRecords () {
-    const url = `${API_URL}/image_records/`
+  getImageRecords (page) {
+    const url = `${API_URL}/image_records/?page=` + page
     return axios.get(url).then(response => response.data)
   }
 
@@ -20,7 +13,7 @@ export class APIService {
   }
 
   getClassifications () {
-    const url = `${API_URL}/image_records/`
+    const url = `${API_URL}/classifications/`
     return axios.get(url).then(response => response.data)
   }
 
@@ -29,9 +22,9 @@ export class APIService {
     return axios.get(url).then(response => response.data)
   }
 
-  createImageRecord (classification) {
-    const url = `${API_URL}/classifications/`
-    return axios.post(url, classification)
+  createImageRecord (data, config) {
+    const url = `${API_URL}/image_records/`
+    return axios.post(url, data, config)
   }
 
   createClassification (classification) {
@@ -39,9 +32,7 @@ export class APIService {
     return axios.post(url, classification)
   }
 
-  // getProductsByURL(link){
-  //     const url = `${API_URL}${link}`;
-  //     return axios.get(url, { headers: { Authorization: `Bearer ${AuthService.getAuthToken()}` }}).then(response => response.data);
-  //
-  // }
+  getByURL (url) {
+    return axios.get(url).then(response => response.data)
+  }
 }

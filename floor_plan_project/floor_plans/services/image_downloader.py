@@ -37,10 +37,10 @@ class ImageDownloader:
             await asyncio.gather(*tasks, return_exceptions=True)
 
     @staticmethod
-    def download_from_urls(url, storage, timeout):
+    def download_from_urls(url, storage_path_folder, timeout):
         urls = [url] if not isinstance(url, list) else url
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(ImageDownloader._download(loop, urls, storage, timeout))
+        loop.run_until_complete(ImageDownloader._download(loop, urls, storage_path_folder, timeout))
         loop.close()
 
     @staticmethod

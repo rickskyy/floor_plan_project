@@ -70,10 +70,9 @@ THIRD_PARTY_APPS = [
     # 'allauth.socialaccount',
     'rest_framework',
     'webpack_loader',
-    # 'corsheaders'
+    'corsheaders'
 ]
 LOCAL_APPS = [
-    # 'floor_plan_project.users.apps.UsersAppConfig',
     'floor_plan_project.floor_plans.apps.FloorPlansAppConfig',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -133,6 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -157,12 +157,12 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-# WEBPACK_LOADER = {
-#     'DEFAULT': {
-#         'BUNDLE_DIR_NAME': 'bundles/',
-#         'STATS_FILE': str(ROOT_DIR.path('webpack-stats.json')),
-#     }
-# }
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': str(ROOT_DIR.path('webpack-stats-prod.json')),
+    }
+}
 
 # print(str(ROOT_DIR.path('webpack-stats.json')))
 
@@ -234,24 +234,22 @@ ADMINS = [
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
-
-# # django-allauth
-# # ------------------------------------------------------------------------------
-# ACCOUNT_ALLOW_REGISTRATION = env.bool('DJANGO_ACCOUNT_ALLOW_REGISTRATION', True)
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# ACCOUNT_AUTHENTICATION_METHOD = 'username'
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# ACCOUNT_EMAIL_REQUIRED = True
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# ACCOUNT_ADAPTER = 'floor_plan_project.users.adapters.AccountAdapter'
-# # https://django-allauth.readthedocs.io/en/latest/configuration.html
-# SOCIALACCOUNT_ADAPTER = 'floor_plan_project.users.adapters.SocialAccountAdapter'
-
-
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 3
+    'DEFAULT_PAGINATION_CLASS': 'floor_plan_project.floor_plans.pagination.PageNumberExtendedPagination',
+    'PAGE_SIZE': 20
 }
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8080',
+    '127.0.0.1:8080',
+    '0.0.0.0:8080',
+    '0.0.0.0:8000',
+    'localhost:8000',
+    '127.0.0.1:8000',
+)
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "0.0.0.0",
+    "127.0.0.1",
+]
