@@ -14,6 +14,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
     "127.0.0.1",
+    'herokudjangoapp.herokuapp.com'
 ]
 
 # DATABASES
@@ -89,9 +90,9 @@ AWS_S3_OBJECT_PARAMETERS = {
 
 # STATIC
 # ------------------------
-
-STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
-STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'config.settings.production.StaticRootS3BotoStorage'
+# STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
 # STATIC_ROOT = STATIC_URL
 
 # MEDIA
@@ -99,7 +100,7 @@ STATIC_URL = f'https://s3.amazonaws.com/{AWS_STORAGE_BUCKET_NAME}/static/'
 
 # region http://stackoverflow.com/questions/10390244/
 from storages.backends.s3boto3 import S3Boto3Storage  # noqa E402
-StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
+# StaticRootS3BotoStorage = lambda: S3Boto3Storage(location='static')  # noqa
 MediaRootS3BotoStorage = lambda: S3Boto3Storage(location='media', file_overwrite=False)  # noqa
 # endregion
 DEFAULT_FILE_STORAGE = 'config.settings.production.MediaRootS3BotoStorage'
@@ -135,6 +136,6 @@ TEMPLATES[0]['OPTIONS']['loaders'] = [  # noqa F405
 # Django Admin URL regex.
 ADMIN_URL = env('DJANGO_ADMIN_URL')
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
-MIDDLEWARE += 'whitenoise.middleware.WhiteNoiseMiddleware'
+INSTALLED_APPS += 'herokuapp'

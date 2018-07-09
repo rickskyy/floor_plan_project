@@ -1,8 +1,3 @@
-matplotlib
-async_timeout
-requests
-aiohttp
-sklearn
 -r ./base.txt
 
 Werkzeug==0.14.1  # https://github.com/pallets/werkzeug

@@ -6,6 +6,7 @@ import environ
 
 ROOT_DIR = environ.Path(__file__) - 3  # (floor_plan_project/config/settings/base.py - 3 = floor_plan_project/)
 APPS_DIR = ROOT_DIR.path('floor_plan_project')
+BASE_DIR = ROOT_DIR
 
 env = environ.Env()
 
@@ -127,6 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
