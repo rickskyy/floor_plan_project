@@ -6,7 +6,7 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    mode: 'production',
     // Paths
     assetsSubDirectory: 'assets',
     // assetsPublicPath: 'http://localhost:8080/',
