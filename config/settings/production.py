@@ -14,7 +14,7 @@ ALLOWED_HOSTS = [
     "localhost",
     "0.0.0.0",
     "127.0.0.1",
-    'herokudjangoapp.herokuapp.com'
+    'floor-plans-classifier.herokuapp.com'
 ]
 
 # DATABASES
