@@ -25,8 +25,8 @@ class SQLBuilder:
     @classmethod
     def generate_insert_images_statements(cls, gen_function, values):
         statements = []
-        current_time = str(datetime.now())
         for val in values:
+            current_time = str(datetime.now())
             statements.append(gen_function('floor_plans_imagerecord',
                                            ('origin_url', 'uploaded_at'),
                                            (str(val), current_time)))
@@ -42,6 +42,6 @@ class SQLBuilder:
 
 csv_path = '/home/rick/Projects/lun/image_urls.csv'
 file_path = os.path.join(dirname(dirname(__file__)), 'load_images.sql')
-urls = utils.extract_urls_from_csv(csv_path, 11, 10000)
+urls = utils.extract_urls_from_csv(csv_path, 100001, 100200)
 
 SQLBuilder.write(file_path, SQLBuilder.generate_insert_images_statements(SQLBuilder.generate_insert_statement, urls))

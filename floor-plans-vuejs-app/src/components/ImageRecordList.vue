@@ -104,22 +104,23 @@ export default {
     getPage (page) {
       this.loading = true
       this.currentPageNumber = page.pageNumber
-      console.log(this.currentPageNumber)
       apiService.getByURL(API_URL + page.link).then((newPage) => {
         this.imageRecords = newPage.results
         this.nextPageURL = newPage.next
         this.previousPageURL = newPage.previous
+        this.$router.push({name: 'ImageRecordList', key: this.$route.path, params: {pk: this.currentPageNumber.toString()}})
       })
       this.loading = false
     },
     getNextPage () {
       this.loading = true
       if (this.nextPageURL !== null) {
-        this.currentPageNumber += 1
         apiService.getByURL(this.nextPageURL).then((page) => {
           this.imageRecords = page.results
           this.nextPageURL = page.next
           this.previousPageURL = page.previous
+          this.currentPageNumber += 1
+          this.$router.push({name: 'ImageRecordList', key: this.$route.path, params: {pk: this.currentPageNumber.toString()}})
         })
       }
       this.loading = false
@@ -127,11 +128,12 @@ export default {
     getPreviousPage () {
       this.loading = true
       if (this.previousPageURL !== null) {
-        this.currentPageNumber = this.currentPageNumber - 1
         apiService.getByURL(this.previousPageURL).then((page) => {
           this.imageRecords = page.results
           this.nextPageURL = page.next
           this.previousPageURL = page.previous
+          this.currentPageNumber = this.currentPageNumber - 1
+          this.$router.push({name: 'ImageRecordList', key: this.$route.path, params: {pk: this.currentPageNumber.toString()}})
         })
       }
       this.loading = false
@@ -192,19 +194,26 @@ export default {
           }
         )
       this.loading = false
-      this.$router.push({path: '/image-record-list/page/' + this.currentPageNumber.toString()})
+      this.$router.push({name: 'ImageRecordList', key: this.$route.path, params: {pk: this.currentPageNumber.toString()}})
+
       // wait the database to update
       sleep(1000).then(() => {
         location.reload()
+        // this.loadRecords()
+        // $reloadRouteData()
+        // this.$router.push({name: 'ImageRecordList', params: {pk: this.currentPageNumber.toString()}})
       })
+    },
+    loadRecords () {
+      if (this.$route.params.pk) {
+        this.getImageRecords(this.$route.params.pk)
+      } else {
+        this.getImageRecords(1)
+      }
     }
   },
   mounted () {
-    if (this.$route.params.pk) {
-      this.getImageRecords(this.$route.params.pk)
-    } else {
-      this.getImageRecords(1)
-    }
+    this.loadRecords()
     this.getClassifiers()
   }
 }
