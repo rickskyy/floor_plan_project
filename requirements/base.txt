@@ -13,7 +13,7 @@ django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-cris
 django-redis==4.9.0  # https://github.com/niwinz/django-redis
 
 # Django REST Framework
-djangorestframework==3.8.2  # https://github.com/encode/django-rest-framework
+djangorestframework==3.11.2  # https://github.com/encode/django-rest-framework
 coreapi==2.3.3  # https://github.com/core-api/python-client
 
 
@@ -50,7 +50,7 @@ django-heroku==0.3.1
 django-model-utils==3.1.2
 django-test-plus==1.1.0
 django-webpack-loader==0.6.0
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 docutils==0.14
 Faker==0.8.16
 futures==3.1.1
