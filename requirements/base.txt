@@ -1,6 +1,6 @@
 pytz==2018.4  # https://github.com/stub42/pytz
 python-slugify==1.2.5  # https://github.com/un33k/python-slugify
-Pillow==5.1.0  # https://github.com/python-pillow/Pillow
+Pillow==9.0.0  # https://github.com/python-pillow/Pillow
 argon2-cffi==18.1.0  # https://github.com/hynek/argon2_cffi
 redis>=2.10.5  # https://github.com/antirez/redis
 
@@ -76,7 +76,7 @@ packaging==17.1
 parso==0.2.1
 pexpect==4.6.0
 pickleshare==0.7.4
-Pillow==5.1.0
+Pillow==9.0.0
 pluggy==0.6.0
 prompt-toolkit==1.0.15
 ptyprocess==0.5.2
